@@ -1,6 +1,6 @@
 import React from "react";
 
-class MainContent extends React.Component {
+class CustomersList extends React.Component {
 	state = {
 		pageTitle: "Customers",
 		customersCount: 5,
@@ -44,11 +44,52 @@ class MainContent extends React.Component {
 		],
 	};
 
+	getPhoneToRender = (phone) => {
+		if (phone) return phone;
+		else {
+			return <div className="bg-warning p-2 text-center">No Phone</div>;
+		}
+	};
+
 	onRefreshClick = () => {
 		this.setState({
 			customersCount: 7,
 		});
 	};
+
+	getCustomerRow = () => {
+		return this.state.customers.map((cust,index) => {
+			return (
+				<tr key={cust.id}>
+					<td>{cust.id}</td>
+					<td>
+						<img src={cust.photo} alt="Customer" />
+						<div>
+							<button className="btn btn-sm btn-secondary" onClick={() => {
+								this.onChangePictureClick(cust,index)
+							}}> Change Picture</button>
+						</div>
+					</td>
+					<td>{cust.name}</td>
+
+					<td>{this.getPhoneToRender(cust.phone)}</td>
+					<td>{cust.address.city}</td>
+				</tr>
+			);
+		});
+	};
+
+	onChangePictureClick = (cust,index) => {
+		// console.log(cust);
+		// console.log(index)
+
+		var custArr = this.state.customers;
+		custArr[index].photo = "https://picsum.photos/id/104/60";
+
+		this.setState({customers: custArr})
+
+
+	}
 	render() {
 		return (
 			<>
@@ -70,14 +111,18 @@ class MainContent extends React.Component {
 					<thead>
 						<tr>
 							<th>#</th>
+							<th>Photo</th>
 							<th>Customer Name</th>
 							<th>Phone</th>
+							<th>City</th>
 						</tr>
-				  </thead>
+					</thead>
+
+					<tbody>{this.getCustomerRow()}</tbody>
 				</table>
 			</>
 		);
 	}
 }
 
-export default MainContent;
+export default CustomersList;
