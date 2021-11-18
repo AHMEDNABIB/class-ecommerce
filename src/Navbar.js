@@ -6,7 +6,7 @@ class App extends React.Component {
 			<React.Fragment>
 				<nav className="navbar navbar-expand-lg navbar-dark bg-dark navbar-style">
 					<a className="navbar-brand" href="/#">
-						My App
+						eCommerce
 					</a>
 					<button
 						className="navbar-toggler"

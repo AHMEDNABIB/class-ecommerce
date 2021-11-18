@@ -23,3 +23,7 @@ code {
 .badge{
   color: black;
 }
+
+.hand-icon{
+	cursor: pointer;
+}

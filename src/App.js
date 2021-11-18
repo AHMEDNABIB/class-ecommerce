@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import MainContent from "./MainContent";
+
 import Navbar from "./Navbar";
+import ShoppingCart from './ShoppingCart';
 
 class App extends Component {
   
@@ -8,7 +9,7 @@ class App extends Component {
 		return (
 			<React.Fragment>
 				<Navbar />
-				<MainContent />
+				<ShoppingCart />
 			</React.Fragment>
 		);
 	}
