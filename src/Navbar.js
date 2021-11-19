@@ -1,6 +1,7 @@
-import React from "react";
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
-class App extends React.Component {
+class NavBar extends Component {
 	render() {
 		return (
 			<React.Fragment>
@@ -8,11 +9,12 @@ class App extends React.Component {
 					<a className="navbar-brand" href="/#">
 						eCommerce
 					</a>
+
 					<button
 						className="navbar-toggler"
 						type="button"
 						data-toggle="collapse"
-						data-target="/#navbarSupportedContent"
+						data-target="#navbarSupportedContent"
 						aria-controls="navbarSupportedContent"
 						aria-expanded="false"
 						aria-label="Toggle navigation">
@@ -24,10 +26,29 @@ class App extends React.Component {
 						id="navbarSupportedContent">
 						<ul className="navbar-nav mr-auto">
 							<li className="nav-item">
-								<a className="nav-link" href="/#">
-									Home
-								</a>
+								<Link to="/" className="nav-link">
+									Login
+								</Link>
 							</li>
+
+							<li className="nav-item">
+								<Link to="/dashboard" className="nav-link">
+									Dashboard
+								</Link>
+							</li>
+
+							<li className="nav-item">
+								<Link to="/customers" className="nav-link">
+									Customers
+								</Link>
+							</li>
+
+							<li className="nav-item">
+								<Link to="/cart" className="nav-link">
+									Shopping Cart
+								</Link>
+							</li>
+						
 						</ul>
 					</div>
 				</nav>
@@ -36,4 +57,4 @@ class App extends React.Component {
 	}
 }
 
-export default App;
+export default NavBar;
